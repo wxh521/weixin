@@ -5,6 +5,7 @@
 
 //define your token
 define("TOKEN", "zbhelper");
+define("ACCESS_TOKEN", "A-4viwsZ8BuSZZ_7gbA59cbJlJ21jQyRZztG87yR9onH-l9Qt_YJUEq3PWF4JUD_QiWvtFxgBQF4Rm8bPXewig");
 $wechatObj = new wechatCallbackapiTest();
 $wechatObj->valid();
 
