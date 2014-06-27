@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>功能列表</title>
+    <title>助手列表</title>
     <link href="/front/css/bootstrap.min.css" rel="stylesheet">
     <link href="/front/css/life.css" rel="stylesheet">
   </head>
@@ -24,6 +24,26 @@
     <a href="/helper/translate.php" class="list-group-item">
     <h4 class="list-group-item-heading">3.实时翻译</h4>
     <p class="list-group-item-text">您可直接点此页进入翻译页面来进行实时翻译</p>
+  </a>
+          
+   <a href="/helper/phonenumber.php" class="list-group-item">
+    <h4 class="list-group-item-heading">4.手机归属地查询</h4>
+    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信查询归属地</p>
+  </a>
+          
+      <a href="/helper/translate.php" class="list-group-item">
+    <h4 class="list-group-item-heading">5.公交查询</h4>
+    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信城市+公交，例如北京322，即可得到该线路的详细信息</p>
+  </a>
+          
+   <a href="/helper/translate.php" class="list-group-item">
+    <h4 class="list-group-item-heading">6.中药材查询</h4>
+    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信查询中药</p>
+  </a>
+          
+    <a href="/helper/translate.php" class="list-group-item">
+    <h4 class="list-group-item-heading">7.彩票查询</h4>
+    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信彩票名称，例如双色球，即可得到最近一期的开奖记录</p>
   </a>
 </div>
           </div>
