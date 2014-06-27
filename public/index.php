@@ -43,7 +43,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <h1>欢迎</h1>
         <div class="row">
         <div class="col-md-6"><p>欢迎来到生活好帮手，这里有最新最全的生活常识与生活助手，您可用微信扫描来关注我们。</p></div>
-        <div class="col-md-4"><p><img width="200" height="200" src="/front/image/life_helper_weixin.jpg" title="扫描关注生活好帮手" style="border:none;"></p></div>
+        <div class="col-md-4"><img width="200" height="200" src="/front/image/life_helper_weixin.jpg" title="扫描关注生活好帮手" style="border:none;"></div>
         </div>
       </div>
     </div>
