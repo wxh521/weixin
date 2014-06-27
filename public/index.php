@@ -54,7 +54,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="col-md-4">
           <h2>帮手列表</h2>
           <p>各种生活帮手助你轻松掌握生活动态</p>
-          <p><a class="btn btn-default" href="#" role="button">查看细节 &raquo;</a></p>
+          <p><a class="btn btn-default" href="/list.php" role="button">查看细节 &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>小游戏</h2>

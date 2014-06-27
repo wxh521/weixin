@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>功能列表</title>
     <link href="/front/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/front/css/life.css" rel="stylesheet">
   </head>
   <body>
+      <div class="container">
       <div class="list-group">
   <a href="/helper/weather.php" class="list-group-item">
     <h4 class="list-group-item-heading">1.天气查询</h4>
@@ -24,6 +26,7 @@
     <p class="list-group-item-text">您可直接点此页进入翻译页面来进行实时翻译</p>
   </a>
 </div>
+          </div>
   </body>
 </html>
 
