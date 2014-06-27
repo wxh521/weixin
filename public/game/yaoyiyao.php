@@ -1,31 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<title>Shake.js</title>
-<style type="text/css">
-body {
-	background: #E9E9E9; 
-	color: #333; 
-	font: 1em/1.3em "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif; /* 16px / 21px */
-	text-shadow: rgba(255,255,255,0.8) 0 1px 0;
-	text-align: center;
-}
-</style>
-<script type="text/javascript" src="shake.js"></script>
-</head>
-<body>
-
-<h1>Shake to Undo</h1>
-<h2>for your mobile web app</h2>
-<p>Shake your iPhone/iPad to see a custom action.</p>
-<p>Works on iOS +4.2.1, Android 4.0.3 (default browser), Opera Mobile (Android), BlackBerry PlayBook 2.0</p>
-
-<p><a href="http://dev.w3.org/geo/api/spec-source-orientation">W3C DeviceOrientation Event Specification</a></p>
-
-<script type="text/javascript">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>摇一摇</title>
+    <link href="/front/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/front/css/life.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="/front/js/html5shiv.js"></script>
+      <script src="/front/js/respond.min.js"></script>
+    <![endif]-->
+    <script src="/front/js/jquery.min.js"></script>
+    <script src="/front/js/bootstrap.min.js"></script>
+    <script src="/front/js/shake.js"></script>
+  </head>
+  <body>
+  
+  </body>
+<script type="text/javascript">     
 window.onload = function() {
 
 	window.addEventListener('shake', shakeEventDidOccur, false);
@@ -35,10 +28,9 @@ window.onload = function() {
 	
 		//put your own code here etc.
 		if (confirm("Undo?")) {
-
+                                alert(1);
 		}
 	}
 };
 </script>
-</body>
 </html>
