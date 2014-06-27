@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>生活好帮手</title>
+    <title>小助手</title>
     <link href="/front/css/bootstrap.min.css" rel="stylesheet">
     <link href="/front/css/life.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -30,11 +30,10 @@
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
-        </div><!--/.navbar-collapse -->
+        </div>
       </div>
     </div>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <h1>欢迎</h1>
@@ -46,7 +45,6 @@
     </div>
 
     <div class="container">
-      <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
           <h2>帮手列表</h2>
@@ -68,7 +66,7 @@
       <hr>
 
       <footer>
-        <p>&copy; 2014 Design by ivan.</p>
+          <p>&copy; 2014 <a href="http://blog.csdn.net/ivan820819" target="_blank">Design by Ivan.</a> 辽ICP备14006318号-1</p>
       </footer>
     </div>
       
