@@ -31,17 +31,17 @@
     <p class="list-group-item-text">您可直接点此页进入查询或回复本微信查询归属地</p>
   </a>
           
-      <a href="/helper/translate.php" class="list-group-item">
+      <a href="/helper/bus.php" class="list-group-item">
     <h4 class="list-group-item-heading">5.公交查询</h4>
     <p class="list-group-item-text">您可直接点此页进入查询或回复本微信城市+公交，例如北京322，即可得到该线路的详细信息</p>
   </a>
           
-   <a href="/helper/translate.php" class="list-group-item">
+   <a href="/helper/medicine.php" class="list-group-item">
     <h4 class="list-group-item-heading">6.中药材查询</h4>
     <p class="list-group-item-text">您可直接点此页进入查询或回复本微信查询中药</p>
   </a>
           
-    <a href="/helper/translate.php" class="list-group-item">
+    <a href="/helper/lottery.php" class="list-group-item">
     <h4 class="list-group-item-heading">7.彩票查询</h4>
     <p class="list-group-item-text">您可直接点此页进入查询或回复本微信彩票名称，例如双色球，即可得到最近一期的开奖记录</p>
   </a>
