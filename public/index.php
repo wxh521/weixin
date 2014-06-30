@@ -64,6 +64,17 @@
       </div>
 
       <hr>
+      
+       <div class="row">
+        <div class="col-md-2">
+          友情链接
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <p><a href="http://www.aikuaidi.cn/" target="_blank" >快递单号查询</a></p>
+        </div>
+      </div>
 
       <footer>
           <p>&copy; 2014 <a href="http://blog.csdn.net/ivan820819" target="_blank">Design by Ivan.</a> 辽ICP备14006318号-1</p>
