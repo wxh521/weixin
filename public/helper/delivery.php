@@ -1,4 +1,5 @@
 <?php
+
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/function.php';
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/delivery.php';
