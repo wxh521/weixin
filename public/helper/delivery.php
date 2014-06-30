@@ -1,36 +1,13 @@
 <?php
-include '../init.php';
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/function.php';
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/delivery.php';
 
 if (count($_POST)) {
     $delivery_number = $_POST['delivery_number'];
     $delivery_name = $_POST['delivery_name'];
-    $delivery_info = array();
-    if ($delivery_name == 'shunfeng') {
-        $delivery_url = 'http://www.sf-express.com/sf-service-web/service/bills/'.$delivery_number.'/routes?app=bill&lang=sc&region=cn';
-        $output = getPage($delivery_url);
-        $result_data =  json_decode($output);
-        $data_array= $result_data[0]->{'routes'};
-        foreach ($data_array as  $key =>$data) { 
-            $delivery_info[$key]['time'] = $data->{'scanDateTime'};
-            $delivery_info[$key]['content'] =  $data->{'remark'};
-        }
-    } else {
-        $postdata = array('id'=>$delivery_name, 'order'=>$delivery_number);
-        $output = getPage('http://www.aikuaidi.cn/query', 'post', $postdata);
-        $result_data =  json_decode($output);
-        $delivery_info = $result_data->{'data'};
-        if (!count($delivery_info)) {
-            $aikuaidi_key = '2e848e76b56940168a7bc735ac771c35';
-            $aikuaidi_url = 'http://www.aikuaidi.cn/rest/?key='.$aikuaidi_key.'&order='.$delivery_number.'&id='.$delivery_name.'&ord=desc';
-            $output = getPage($aikuaidi_url);
-            $result_data =  json_decode($output);
-            $delivery_info = $result_data->{'data'};
-        }
-    }
-   
-    
+    $delivery_info = getDeliveryInfo($delivery_name, $delivery_number);
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -45,14 +22,16 @@ if (count($_POST)) {
   </head>
   <body>
       <div class="container">
-          <form role="form" method="post">
+          <form role="form" method="post" id="deliveryform">
   <div class="form-group">
-    <label for="exampleInputEmail1">快递名称</label>
-    <select class="form-control" name="delivery_name">
+    <label for="delivery_name">快递名称</label>
+    <select class="form-control" name="delivery_name" id="delivery_name">
         <option value="jingdong">京东快递</option>
-        <option value="debang">德邦物流</option>
-        <option value="dtwl">大田物流</option>
+        <option value="dhl">DHL快递</option>
         <option value="ems">EMS快递</option>
+        <option value="ups">UPS国际快递</option>
+        <option value="debang">德邦物流</option>
+        <option value="huitong">汇通快递</option>
         <option value="rufengda">如风达快递</option>
         <option value="shentong">申通快递</option>
         <option value="shunfeng">顺丰快递</option>
@@ -65,10 +44,10 @@ if (count($_POST)) {
 </select>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">快递单号</label>
+    <label for="delivery_number">快递单号</label>
     <input type="text" class="form-control" id="delivery_number" name="delivery_number">
   </div>
-  <button type="submit" class="btn btn-default">查询</button>
+  <button type="button" class="btn btn-default" id="query">查询</button>
 </form>
           
           <?php
@@ -82,7 +61,7 @@ if (count($_POST)) {
               </thead>
               <tbody>
                   <?php
-                            foreach ($delivery_info as  $data) { 
+                            foreach ($delivery_info as $data) { 
                   ?>
                   <tr>
                       <td><?php echo $data->{'time'}?></td>
@@ -99,12 +78,21 @@ if (count($_POST)) {
       
        <div class="row">
         <div class="col-md-2">
-          没有查到您的订单信息。
+          没有查到您的快递信息。
         </div>
       </div>
          <?php  } }
           ?>
       </div>
-
+<script type="text/javascript">
+    document.getElementById("query").addEventListener("click", function () {
+        var delivery_number = document.getElementById("delivery_number");
+        if (delivery_number.value) {
+            document.getElementById("deliveryform").submit();
+        } else {
+            alert("请填写快递单号！");
+        }
+    });
+    </script>
   </body>
 </html>
