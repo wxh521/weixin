@@ -1,82 +1,96 @@
 <?php
-/**
-  * wechat php test
-  */
 
-//define your token
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/function.php';
+
 define("TOKEN", "zbhelper");
 define("ACCESS_TOKEN", "A-4viwsZ8BuSZZ_7gbA59cbJlJ21jQyRZztG87yR9onH-l9Qt_YJUEq3PWF4JUD_QiWvtFxgBQF4Rm8bPXewig");
-$wechatObj = new wechatCallbackapiTest();
-$wechatObj->valid();
+$wxObj = new weixinLifeHelper();
+$wxObj->responseMsg();
 
-class wechatCallbackapiTest
-{
-	public function valid()
-    {
+class weixinLifeHelper {
+    
+    public function valid() {
         $echoStr = $_GET["echostr"];
-
-        //valid signature , option
         if($this->checkSignature()){
-        	echo $echoStr;
-        	exit;
+            echo $echoStr;
+            exit;
         }
     }
 
-    public function responseMsg()
-    {
-		//get post data, May be due to the different environments
-		$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-
-      	//extract post data
-		if (!empty($postStr)){
-                
-              	$postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
-                $fromUsername = $postObj->FromUserName;
-                $toUsername = $postObj->ToUserName;
+    public function responseMsg() {
+        $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+        $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+        if (!empty($postStr)){
                 $keyword = trim($postObj->Content);
-                $time = time();
-                $textTpl = "<xml>
-							<ToUserName><![CDATA[%s]]></ToUserName>
-							<FromUserName><![CDATA[%s]]></FromUserName>
-							<CreateTime>%s</CreateTime>
-							<MsgType><![CDATA[%s]]></MsgType>
-							<Content><![CDATA[%s]]></Content>
-							<FuncFlag>0</FuncFlag>
-							</xml>";             
-				if(!empty( $keyword ))
-                {
-              		$msgType = "text";
-                	$contentStr = "Welcome to wechat world!";
-                	$resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
-                	echo $resultStr;
-                }else{
-                	echo "Input something...";
+                mb_internal_encoding("UTF-8");
+                $type = mb_substr($keyword, -2);
+                if ($type == '天气'){
+                    $response = $this->_weather($postObj);
+                    echo $response;
+                    exit;
                 }
-
-        }else {
-        	echo "";
-        	exit;
         }
+        
+        $fromUsername = $postObj->FromUserName;
+        $toUsername = $postObj->ToUserName;
+        $time = time();
+        $textTpl =  "<xml>
+                     <ToUserName><![CDATA[%s]]></ToUserName>
+                     <FromUserName><![CDATA[%s]]></FromUserName>
+                     <CreateTime>%s</CreateTime>
+                     <MsgType><![CDATA[text]]></MsgType>
+                     <Content><![CDATA[您输入的功能未识别]]></Content>
+                     </xml>";
+        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time);
+        echo $resultStr;
+        exit;
+    }
+    
+    private function _weather($postObj) {
+        $keyword = trim($postObj->Content);
+        $cityName = mb_substr($keyword, 0, -2);
+        include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/weather.php';
+        $weathers = getWeatherInfo($cityName);
+        $content = '<Articles>';
+        foreach ($weathers as $weather) {
+            $content .= '<item><Title>'.$weather['Title'].'</Title><Description>'.$weather['Description'].'</Description><PicUrl>'.$weather['PicUrl'].'</PicUrl><Url>'.$weather['Url'].'</Url></item>';
+        }
+        $content .= '</Articles>';
+        $fromUsername = $postObj->FromUserName;
+        $toUsername = $postObj->ToUserName;
+        $time = time();
+        $msgType = 'news';
+        $articleCount = count($weathers);
+        $textTpl = "<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[%s]]></MsgType>
+                    <ArticleCount>%s</ArticleCount>
+                    $content
+                    </xml>";
+        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $articleCount);
+        return $resultStr;
     }
 		
-	private function checkSignature()
-	{
+    private function checkSignature() {
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];	
         		
-		$token = TOKEN;
-		$tmpArr = array($token, $timestamp, $nonce);
-		sort($tmpArr, SORT_STRING);
-		$tmpStr = implode( $tmpArr );
-		$tmpStr = sha1( $tmpStr );
-		
-		if( $tmpStr == $signature ){
-			return true;
-		}else{
-			return false;
-		}
-	}
+        $token = TOKEN;
+        $tmpArr = array($token, $timestamp, $nonce);
+        sort($tmpArr, SORT_STRING);
+        $tmpStr = implode( $tmpArr );
+        $tmpStr = sha1( $tmpStr );
+
+        if( $tmpStr == $signature ){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 ?>
