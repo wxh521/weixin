@@ -12,7 +12,7 @@ class weixinLifeHelper {
     
     public function valid() {
         $echoStr = $_GET["echostr"];
-        if($this->checkSignature()){
+        if ($this->checkSignature()) {
             echo $echoStr;
             exit;
         }
