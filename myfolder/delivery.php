@@ -11,6 +11,9 @@ function getDeliveryInfo($delivery_name, $delivery_number) {
         $delivery_url = 'http://www.sf-express.com/sf-service-web/service/bills/'.$delivery_number.'/routes?app=bill&lang=sc&region=cn';
         $output = getPage($delivery_url);
         $result_data =  json_decode($output);
+        if (!$result_data) {
+            return $delivery_info;
+        }
         $data_array= $result_data[0]->{'routes'};
         foreach ($data_array as  $key =>$data) { 
             $delivery_info[$key] = (object) array('time'=>$data->{'scanDateTime'}, 'content'=>$data->{'remark'});
