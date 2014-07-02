@@ -9,7 +9,7 @@ $wxObj = new weixinLifeHelper();
 $wxObj->responseMsg();
 
 class weixinLifeHelper {
-    
+
     public function valid() {
         $echoStr = $_GET["echostr"];
         if ($this->checkSignature()) {
@@ -22,41 +22,41 @@ class weixinLifeHelper {
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
         $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
         if (!empty($postStr)){
-                $keyword = trim($postObj->Content);
-                mb_internal_encoding("UTF-8");
-                //天气预报部分
-                $type = mb_substr($keyword, -2);
-                if ($type == '天气'){
-                    $response = $this->_weatherInfo($postObj);
-                    echo $response;
-                    exit;
-                }
-                //快递查询部分
-                $delivery = array('jingdong'=>'京东', 'dhl'=>'DHL', 'ems'=>'EMS', 'ups'=>'UPS', 'rufengda'=>'如风达', 'shentong'=>'申通', 'shunfeng'=>'顺丰', 'yuantong'=>'圆通', 'tiantian'=>'天天', 'yunda'=>'韵达', 'zhongtong'=>'中通', 'zjs'=>'宅急送');
-                $type = mb_ereg_replace('[0-9]+', '', $keyword);
-                $whichDelivery = array_search ($type,  $delivery);
-                if ($whichDelivery !== false) {
-                    $response = $this->_deliveryInfo($whichDelivery, $postObj, $delivery);
-                    echo $response;
-                    exit;
-                }
+            $keyword = trim($postObj->Content);
+            mb_internal_encoding("UTF-8");
+            //天气预报部分
+            $type = mb_substr($keyword, -2);
+            if ($type == '天气'){
+                $response = $this->_weatherInfo($postObj);
+                echo $response;
+                exit;
+            }
+            //快递查询部分
+            $delivery = array('jingdong'=>'京东', 'dhl'=>'DHL', 'ems'=>'EMS', 'ups'=>'UPS', 'rufengda'=>'如风达', 'shentong'=>'申通', 'shunfeng'=>'顺丰', 'yuantong'=>'圆通', 'tiantian'=>'天天', 'yunda'=>'韵达', 'zhongtong'=>'中通', 'zjs'=>'宅急送');
+            $type = mb_ereg_replace('[0-9]+', '', $keyword);
+            $whichDelivery = array_search($type, $delivery);
+            if ($whichDelivery !== false) {
+                $response = $this->_deliveryInfo($whichDelivery, $postObj, $delivery);
+                echo $response;
+                exit;
+            }
         }
-        
+
         $fromUsername = $postObj->FromUserName;
         $toUsername = $postObj->ToUserName;
         $time = time();
-        $textTpl =  "<xml>
-                                <ToUserName><![CDATA[%s]]></ToUserName>
-                                <FromUserName><![CDATA[%s]]></FromUserName>
-                                <CreateTime>%s</CreateTime>
-                                <MsgType><![CDATA[text]]></MsgType>
-                                <Content><![CDATA[您输入的功能未识别]]></Content>
-                                </xml>";
+        $textTpl = "<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[text]]></MsgType>
+                    <Content><![CDATA[您输入的功能未识别]]></Content>
+                    </xml>";
         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time);
         echo $resultStr;
         exit;
     }
-    
+
     private function _weatherInfo($postObj) {
         $keyword = trim($postObj->Content);
         $cityName = mb_substr($keyword, 0, -2);
@@ -83,7 +83,7 @@ class weixinLifeHelper {
         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $articleCount);
         return $resultStr;
     }
-    
+
     private function _deliveryInfo($whichDelivery, $postObj, $delivery) {
         $keyword = trim($postObj->Content);
         $delivery_number = mb_ereg_replace($delivery[$whichDelivery], '', $keyword);
@@ -97,7 +97,7 @@ class weixinLifeHelper {
                 $content .= '<item><Title><![CDATA['.$delivery[$whichDelivery].'快递]]></Title><Description><![CDATA[]]></Description><PicUrl><![CDATA[]]></PicUrl><Url><![CDATA[]]></Url></item>';
                 foreach ($delivery_info as $info) {
                     $time = date('m/d H:i', strtotime($info->{'time'}));
-                    $delivery_content = preg_replace ('/<.*?>/i',  '' ,  $info->{'content'} );
+                    $delivery_content = preg_replace ('/<.*?>/i', '', $info->{'content'} );
                     $content .= '<item><Title><![CDATA['.$time.'     '.$delivery_content.']]></Title><Description><![CDATA[]]></Description><PicUrl><![CDATA[]]></PicUrl><Url><![CDATA[]]></Url></item>';
                 }
             } else {
@@ -123,12 +123,12 @@ class weixinLifeHelper {
         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $articleCount);
         return $resultStr;
     }
-		
+
     private function checkSignature() {
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];	
-        		
+        $nonce = $_GET["nonce"];
+
         $token = TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr, SORT_STRING);
@@ -142,5 +142,3 @@ class weixinLifeHelper {
         }
     }
 }
-
-?>
