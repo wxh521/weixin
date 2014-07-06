@@ -41,7 +41,7 @@ class weixinLifeHelper {
                 exit;
             }
             //手机归属地查询部分
-            if (preg_match_all("/[0-9]{11}/i", $keyword)) {
+            if (!$type) {
                 $response = $this->_phoneNumberInfo($keyword);
                 echo $response;
                 exit;

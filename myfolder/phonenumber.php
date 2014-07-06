@@ -12,6 +12,9 @@ function getPhoneInfo($phone_number) {
 
     preg_match("/province:'(.*)'/i", $output, $matches);
     $province = $matches[1];
+    if (!$province) {
+        return '您输入的号码未识别';
+    }
     preg_match("/catName:'(.*)'/i", $output, $matches);
     $catName = $matches[1];
 
