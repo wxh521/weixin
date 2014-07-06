@@ -42,7 +42,7 @@ class weixinLifeHelper {
             }
             //手机归属地查询部分
             if (!$type) {
-                $response = $this->_phoneNumberInfo($keyword);
+                $response = $this->_phoneNumberInfo($postObj);
                 echo $response;
                 exit;
             }
@@ -131,7 +131,8 @@ class weixinLifeHelper {
         return $resultStr;
     }
 
-    private function _phoneNumberInfo($phoneNumber) {
+    private function _phoneNumberInfo($postObj) {
+        $phoneNumber = trim($postObj->Content);
         include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/phonenumber.php';
         $phone_info = getPhoneInfo($phoneNumber);
         $fromUsername = $postObj->FromUserName;
