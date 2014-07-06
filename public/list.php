@@ -28,7 +28,7 @@
           
    <a href="/helper/phonenumber.php" class="list-group-item">
     <h4 class="list-group-item-heading">4.手机归属地查询</h4>
-    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信查询归属地</p>
+    <p class="list-group-item-text">您可直接点此页进入查询或发送手机号给本微信查询其归属地</p>
   </a>
           
       <a href="/helper/bus.php" class="list-group-item">
@@ -43,7 +43,7 @@
           
     <a href="/helper/lottery.php" class="list-group-item">
     <h4 class="list-group-item-heading">7.彩票查询</h4>
-    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信彩票名称，例如双色球，即可得到最近一期的开奖记录</p>
+    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信彩票名称，例如双色球，即可得到最近一期的开奖记录。目前支持大乐透、3D、排列3、排列5、七乐彩、七星彩、双色球、六场半全场、四场进球彩、任九。其他地方彩种暂不支持查询</p>
   </a>
 </div>
           </div>

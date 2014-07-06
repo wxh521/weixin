@@ -46,7 +46,14 @@ class weixinLifeHelper {
                 echo $response;
                 exit;
             }
-
+            //彩票结果查询部分
+            $lottery = array('dlt'=>'大乐透', 'fc3d'=>'3D', 'pl3'=>'排列3', 'pl5'=>'排列5', 'qlc'=>'七乐彩', 'qxc'=>'七星彩', 'ssq'=>'双色球', 'zcbqc'=>'六场半全场', 'zcjqc'=>'四场进球彩', 'zcsfc'=>'任九');
+            $whichLottery = array_search($keyword, $lottery);
+            if ($whichLottery !== false) {
+                $response = $this->_lotteryInfo($whichLottery, $postObj, $lottery);
+                echo $response;
+                exit;
+            }
         }
 
         $fromUsername = $postObj->FromUserName;
@@ -147,6 +154,34 @@ class weixinLifeHelper {
                     <Content>%s</Content>
                     </xml>";
         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $phone_info);
+        return $resultStr;
+    }
+
+    private function _lotteryInfo($whichLottery, $postObj, $lottery) {
+        $lottery_name = trim($postObj->Content);
+        include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/lottery.php';
+        $lottery_info = getLotteryInfo($whichLottery);
+        $fromUsername = $postObj->FromUserName;
+        $toUsername = $postObj->ToUserName;
+        $time = time();
+        $msgType = 'text';
+        $lottery_content = '';
+        if (is_array($lottery_info->{'data'})) {
+            foreach ($lottery_info->{'data'} as $data) {
+                $lottery_content .= '第'.$data->{'expect'}."期\n开奖时间".$data->{'opentime'}."\n开奖结果".$data->{'opencode'};
+                break;
+            }
+        } else {
+            $lottery_content = '未知彩票';
+        }
+        $textTpl = "<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[%s]]></MsgType>
+                    <Content>%s</Content>
+                    </xml>";
+        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $lottery_content);
         return $resultStr;
     }
 
