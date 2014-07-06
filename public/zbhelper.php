@@ -40,6 +40,13 @@ class weixinLifeHelper {
                 echo $response;
                 exit;
             }
+            //手机归属地查询部分
+            if (preg_match_all("/[0-9]{11}/i", $keyword)) {
+                $response = $this->_phoneNumberInfo($keyword);
+                echo $response;
+                exit;
+            }
+
         }
 
         $fromUsername = $postObj->FromUserName;
@@ -121,6 +128,24 @@ class weixinLifeHelper {
                     $content
                     </xml>";
         $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $articleCount);
+        return $resultStr;
+    }
+
+    private function _phoneNumberInfo($phoneNumber) {
+        include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/phonenumber.php';
+        $phone_info = getPhoneInfo($phoneNumber);
+        $fromUsername = $postObj->FromUserName;
+        $toUsername = $postObj->ToUserName;
+        $time = time();
+        $msgType = 'text';
+        $textTpl = "<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[%s]]></MsgType>
+                    <Content>%s</Content>
+                    </xml>";
+        $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $phone_info);
         return $resultStr;
     }
 
