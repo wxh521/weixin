@@ -45,6 +45,16 @@
     <h4 class="list-group-item-heading">7.彩票查询</h4>
     <p class="list-group-item-text">您可直接点此页进入查询或回复本微信彩票名称，例如双色球，即可得到最近一期的开奖记录。目前支持大乐透、3D、排列3、排列5、七乐彩、七星彩、双色球、六场半全场、四场进球彩、任九。其他地方彩种暂不支持查询</p>
   </a>
+          
+   <a href="/helper/lottery.php" class="list-group-item">
+    <h4 class="list-group-item-heading">8.影讯查询</h4>
+    <p class="list-group-item-text">您可直接点此页进入查询或回复本微信电影名称</p>
+  </a>
+          
+   <a href="/helper/lottery.php" class="list-group-item">
+    <h4 class="list-group-item-heading">9.交通违章查询</h4>
+    <p class="list-group-item-text">您可直接点此页进入查询或回复车牌号</p>
+  </a>
 </div>
           </div>
   </body>
