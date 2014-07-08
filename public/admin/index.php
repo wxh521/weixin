@@ -47,21 +47,16 @@ if (isset($_GET['func'])) {
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li<?php if ($content == 'helpsetting') {echo ' class="active"';} ?>><a href="/admin/index.php?func=helpsetting">帮手列表设定</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
+            <li<?php if ($content == 'gamesetting') {echo ' class="active"';} ?>><a href="/admin/index.php?func=gamesetting">游戏列表设定</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
+            <li<?php if ($content == 'delivsetting') {echo ' class="active"';} ?>><a href="/admin/index.php?func=delivsetting">快递设定</a></li>
+          </ul>
+           <ul class="nav nav-sidebar">
+            <li<?php if ($content == 'lottsetting') {echo ' class="active"';} ?>><a href="/admin/index.php?func=lottsetting">彩种设定</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
+            <li><a href="javascript:;">待定功能</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
