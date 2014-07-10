@@ -17,6 +17,21 @@
                "type":"view",
                "name":"我画你猜",
                "url":"http://zbfirst.com/game/wohuanicai.php"
+            },
+            {
+               "type":"view",
+               "name":"摇一摇",
+               "url":"http://zbfirst.com/game/yaoyiyao.php"
+            },
+            {
+               "type":"view",
+               "name":"2048",
+               "url":"http://zbfirst.com/game/2048.php"
+            },
+            {
+               "type":"view",
+               "name":"飞翔的小鸟",
+               "url":"http://zbfirst.com/game/flybird.php"
             }]
        },
       {
@@ -31,6 +46,11 @@
                "type":"view",
                "name":"交流社区",
                "url":"http://zbfirst.com/bbs/"
+            },
+            {
+               "type":"view",
+               "name":"关于我们",
+               "url":"http://zbfirst.com/bbs/aboutus.php"
             }]
        }]
  }
