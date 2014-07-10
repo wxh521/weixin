@@ -21,7 +21,7 @@
       <a class="restart-button">新游戏</a>
       <div class="scores-container">
         <div class="score-container">0</div>
-        <div class="best-container">0</div>
+        <div class="best-container" style="display:none;">0</div>
       </div>
     </div>
 

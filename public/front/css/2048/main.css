@@ -37,21 +37,20 @@ html, body {
     top: -50px;
     opacity: 0; } }
 .scores-container {
-  float: right;
+  float: left;
   text-align: right; }
 
 .score-container, .best-container {
   position: relative;
   display: inline-block;
   background: #bbada0;
-  padding: 15px 25px;
+  padding: 15px;
   font-size: 25px;
   height: 25px;
   line-height: 47px;
   font-weight: bold;
   border-radius: 3px;
   color: white;
-  margin-top: 8px;
   text-align: center; }
   .score-container:after, .best-container:after {
     position: absolute;
@@ -470,14 +469,14 @@ hr {
   display: inline-block;
   background: #8f7a66;
   border-radius: 3px;
-  padding: 0 20px;
+  padding: 0 5px;
   text-decoration: none;
   color: #f9f6f2;
   height: 40px;
   line-height: 42px;
   display: block;
   text-align: center;
-  float: left; }
+  float: right; }
 
 .game-explanation {
   margin-top: 50px; }
