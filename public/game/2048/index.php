@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <title>2048</title>
 
-  <link href="/front/css/2048/main.css" rel="stylesheet" type="text/css">
-  <link rel="apple-touch-icon" href="/front/css/image/apple-touch-icon.png">
-  <link rel="apple-touch-startup-image" href="/front/css/image/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
-  <link rel="apple-touch-startup-image" href="/front/css/image/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link rel="apple-touch-icon" href="image/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="image/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
+  <link rel="apple-touch-startup-image" href="image/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -67,15 +67,15 @@
     </div>
   </div>
 
-  <script src="/front/js/2048/bind_polyfill.js"></script>
-  <script src="/front/js/2048/classlist_polyfill.js"></script>
-  <script src="/front/js/2048/animframe_polyfill.js"></script>
-  <script src="/front/js/2048/keyboard_input_manager.js"></script>
-  <script src="/front/js/2048/html_actuator.js"></script>
-  <script src="/front/js/2048/grid.js"></script>
-  <script src="/front/js/2048/tile.js"></script>
-  <script src="/front/js/2048/local_storage_manager.js"></script>
-  <script src="/front/js/2048/game_manager.js"></script>
-  <script src="/front/js/2048/application.js"></script>
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
 </body>
 </html>

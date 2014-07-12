@@ -4,7 +4,7 @@ include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/function.php';
 
 define("TOKEN", "zbhelper");
-define("ACCESS_TOKEN", "LBLlR8hQdVInZn8Wb-gXHOd3lWod4wPQSMtJF1-V7Iofhuy_PLHihXL4Jqkzh8vVbyFIrV03oou-lN458AqVhw");
+define("ACCESS_TOKEN", "lqy4WHUY0kq-QR5kAkmFf7MLZFAwkFeEk83lLx55-SbdUGGtqCRh2hWoG0DQfgJvQW0eCSSgI3K5DoqTvAIkhg");
 $wxObj = new weixinLifeHelper();
 $wxObj->responseMsg();
 

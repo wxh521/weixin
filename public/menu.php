@@ -26,12 +26,12 @@
             {
                "type":"view",
                "name":"2048",
-               "url":"http://zbfirst.com/game/2048.php"
+               "url":"http://zbfirst.com/game/2048"
             },
             {
                "type":"view",
                "name":"飞翔的小鸟",
-               "url":"http://zbfirst.com/game/flybird.php"
+               "url":"http://zbfirst.com/game/flybird"
             }]
        },
       {
