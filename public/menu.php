@@ -30,7 +30,7 @@
             },
             {
                "type":"view",
-               "name":"飞翔的小鸟",
+               "name":"飞翔的小狗",
                "url":"http://zbfirst.com/game/flybird"
             }]
        },
