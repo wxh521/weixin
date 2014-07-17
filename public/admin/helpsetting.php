@@ -1,5 +1,13 @@
 <?php
 
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/function.php';
+
+if (count($_POST)) {
+    $helpername = $_POST['helpername'];
+    $helperdesc = $_POST['helperdesc'];
+    $helperaddr = $_POST['helperaddr'];
+}
 
 ?>
 <h1 class="page-header">添加帮手</h1>

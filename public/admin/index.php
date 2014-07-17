@@ -45,6 +45,9 @@ if (isset($_GET['func'])) {
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
+           <ul class="nav nav-sidebar">
+            <li<?php if ($content == 'syssetting') {echo ' class="active"';} ?>><a href="/admin/index.php?func=syssetting">帮手系统设定</a></li>
+          </ul>
           <ul class="nav nav-sidebar">
             <li<?php if ($content == 'helpsetting') {echo ' class="active"';} ?>><a href="/admin/index.php?func=helpsetting">帮手列表设定</a></li>
             <li<?php if ($content == 'gamesetting') {echo ' class="active"';} ?>><a href="/admin/index.php?func=gamesetting">游戏列表设定</a></li>
