@@ -1,7 +1,8 @@
 <?php
 
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/rb.php';
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
-include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/function.php';
+
 
 if (count($_POST)) {
     $helpername = $_POST['helpername'];
