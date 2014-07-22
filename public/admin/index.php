@@ -1,7 +1,11 @@
 <?php
 
+include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/rb.php';
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
-include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/function.php';
+
+if ($_SESSION['username'] != 'admin') {
+    header('location: /');
+}
 
 $content = '';
 if (isset($_GET['func'])) {
