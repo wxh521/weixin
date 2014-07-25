@@ -21,7 +21,7 @@
           <a class="navbar-brand" href="http://zbfirst.com">生活好帮手</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
+            <form class="navbar-form navbar-right" role="form" action="/admin/index.php" method="post">
             <div class="form-group">
               <input name="email" type="text" placeholder="Email" class="form-control">
             </div>
@@ -49,17 +49,17 @@
         <div class="col-md-4">
           <h2>帮手列表</h2>
           <p>各种生活帮手助你轻松掌握生活动态</p>
-          <p><a class="btn btn-default" href="/list.php" role="button">查看细节 &raquo;</a></p>
+          <p><a class="btn btn-default" href="/list.php" role="button">进入帮手 &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>小游戏</h2>
           <p>休闲小游戏让你放松一下 </p>
-          <p><a class="btn btn-default" href="#" role="button">查看细节 &raquo;</a></p>
+          <p><a class="btn btn-default" href="javascript:;" role="button" data-target=".bs-example-modal-sm" data-toggle="modal">游戏列表 &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2>帮手社区</h2>
           <p>进入社区解答你的疑问</p>
-          <p><a class="btn btn-default" href="#" role="button">查看细节 &raquo;</a></p>
+          <p><a class="btn btn-default" href="javascript:;" role="button">查看细节 &raquo;</a></p>
         </div>
       </div>
 
@@ -80,6 +80,22 @@
           <p>&copy; 2014 <a href="http://blog.csdn.net/ivan820819" target="_blank">Design by Ivan.</a> 辽ICP备14006318号-1</p>
       </footer>
     </div>
-      
+
+ <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="gameModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+        <div class="modal-header">
+          <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 id="mySmallModalLabel" class="modal-title">游戏列表</h4>
+        </div>
+        <div class="modal-body">
+          <a class="btn btn-default" href="/game/2048" role="button">2048</a>
+          <a class="btn btn-default" href="/game/flybird" role="button">飞翔的小狗</a>
+        </div>
+      </div>
+  </div>
+</div>
+
   </body>
 </html>

@@ -3,13 +3,23 @@
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/rb.php';
 include $_SERVER['DOCUMENT_ROOT'].'/../myfolder/init.php';
 
-if ($_SESSION['username'] != 'admin') {
-    header('location: /');
+if (count($_POST)) {
+    if ($_POST['email'] == 'ivan820819@qq.com' && $_POST['password'] == '123456') {
+        $_SESSION['username'] = 'admin';
+    }
 }
 
 $content = '';
 if (isset($_GET['func'])) {
-    $content = $_GET['func'];
+    if ($_GET['func'] == 'logout') {
+        $_SESSION['username'] = '';
+    } else {
+        $content = $_GET['func'];
+    }
+}
+
+if ($_SESSION['username'] != 'admin') {
+    header('location: /');
 }
 ?>
 <!DOCTYPE html>
@@ -37,7 +47,7 @@ if (isset($_GET['func'])) {
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Logout</a></li>
+            <li><a href="/admin/index.php?func=logout">Logout</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
